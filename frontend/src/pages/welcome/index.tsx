@@ -1,3 +1,5 @@
+import IntroductionSlide from '../../components/slide/introduction';
+
 const Welcome = () => {
   return (
     <div
@@ -29,7 +31,7 @@ const Welcome = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active" data-bs-interval="100000">
-          Slide1
+          <IntroductionSlide />
         </div>
         <div className="carousel-item">Slide2</div>
         <div className="carousel-item">Slide3</div>

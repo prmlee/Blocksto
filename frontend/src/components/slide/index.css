@@ -1,0 +1,19 @@
+div.intro-slide {
+  padding: 0px 32px;
+}
+div.intro-slide p:not(:last-child) {
+  font-size: 64px;
+  text-align: left;
+  line-height: 1.2;
+}
+div.intro-slide p:last-child {
+  border-radius: 28px;
+  padding: 4px 16px;
+  color: black;
+  font-size: 32px;
+  width: fit-content;
+  background-color: var(--pink);
+}
+div.intro-slide img {
+  width: 100%;
+}
