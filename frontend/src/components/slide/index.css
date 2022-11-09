@@ -17,3 +17,45 @@ div.intro-slide p:last-child {
 div.intro-slide img {
   width: 100%;
 }
+
+div.features-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+div.features-slide > div {
+  padding-top: 32px;
+}
+div.features-slide div.feature-item {
+  display: flex;
+  align-items: center;
+}
+div.features-slide img {
+  width: 20%;
+  margin-right: 24px;
+}
+div.features-slide div.feature-item:nth-child(3) img {
+  transform: rotate(-30deg);
+}
+div.features-slide div.feature-item p {
+  padding-top: 24px;
+  font-size: 36px;
+}
+
+p.title {
+  color: black;
+  font-size: 48px;
+  letter-spacing: 0.075em;
+  position: relative;
+}
+p.title::after {
+  position: absolute;
+  bottom: -21px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 70%;
+  content: '';
+  display: block;
+  background-color: var(--blue);
+}
