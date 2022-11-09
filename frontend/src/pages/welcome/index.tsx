@@ -1,4 +1,5 @@
 import FeaturesSlide from '../../components/slide/features';
+import About from '../../components/slide/about';
 import IntroductionSlide from '../../components/slide/introduction';
 
 const Welcome = () => {
@@ -34,7 +35,9 @@ const Welcome = () => {
         <div className="carousel-item active" data-bs-interval="100000">
           <IntroductionSlide />
         </div>
-        <div className="carousel-item"></div>
+        <div className="carousel-item">
+          <About />
+        </div>
         <div className="carousel-item">
           <FeaturesSlide />
         </div>
