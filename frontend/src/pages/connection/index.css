@@ -1,0 +1,37 @@
+div.connection{
+	font-size: 28px;
+	font-weight: 400;
+	padding: 32px
+}
+
+div.connection > div:first-child > div:first-child {
+	margin-bottom: 64px;
+}
+div.connection > div:first-child p:first-child {
+	font-size: 42px;
+	font-weight: bold;
+}
+div.connection > div:first-child input {
+	width: 75%;
+	border-radius: 8px;
+	border-width: 2px;
+	border-color: black;
+	font-size: 28px;
+}
+div.connection a[href='/register'] {
+	text-decoration: underline;
+}
+
+div.connection > div:nth-child(2) > img {
+	width: 100%;
+}
+
+div.button {
+	width: fit-content;
+	padding: 4px 64px;
+	margin-left: 30%;
+	border-radius: 28px;
+	font-weight: bold;
+	color: black;
+	background-color: var(--pink);
+}
