@@ -1,0 +1,78 @@
+div.input-primary {
+  display: flex;
+  border-radius: 24px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+  background-color: var(--lightgray);
+  width: 100%;
+  font-size: 24px;
+  text-align: left;
+}
+div.input-primary > input[type='text'],
+div.input-primary > input[type='email'],
+div.input-primary > input[type='password'] {
+  flex: 1;
+  margin-right: 24px;
+  background-color: var(--lightgray);
+  border: none;
+  width: inherit;
+  resize: none;
+}
+div.input-primary > input[type='checkbox'] {
+  width: 32px;
+  height: 32px;
+}
+div.input-primary > span {
+  flex-shrink: 0;
+  padding-right: 24px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+div.w-content {
+  width: fit-content;
+}
+
+div.primary-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 24px;
+  text-align: left;
+}
+div.primary-dropdown > div.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 24px;
+  padding: 4px 12px;
+  background-color: var(--lightgray);
+  width: 100%;
+  font-size: 24px;
+  text-align: left;
+}
+div.primary-dropdown > div.dropdown-header > span:nth-child(2) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+div.primary-dropdown > div.dropdown-header > img {
+  width: 24px;
+}
+div.primary-dropdown > div.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  margin-left: 200px;
+  background-color: var(--lightgray);
+  top: 100%;
+  width: 77%;
+}
+div.primary-dropdown > div.dropdown-content > p {
+  margin: 6px 0px;
+}
