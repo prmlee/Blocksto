@@ -15,3 +15,5 @@ export type User = {
   blockstoSecreteNumber: string;
   avatar: string;
 };
+
+export type MethodType = 'GET' | 'POST' | 'PUT';
