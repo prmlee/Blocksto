@@ -1,0 +1,17 @@
+div.register {
+  padding: 32px;
+  margin: auto;
+  width: 70%;
+  font-size: 32px;
+}
+div.register > p {
+  font-size: 20px;
+}
+div.register > p:first-child {
+  font-size: 48px;
+  font-weight: 500;
+}
+div.register > div.button {
+  font-size: 28px;
+  margin: auto;
+}

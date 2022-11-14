@@ -5,7 +5,7 @@ const Connection = () => {
   const [blockstoId, setBlockstoId] = useState<string>('');
   const [blockstoPassword, setBlockstoPassword] = useState<string>('');
 
-  const login = () => {
+  const onLogin = () => {
     console.log(blockstoId, blockstoPassword);
   };
 
@@ -24,7 +24,7 @@ const Connection = () => {
           />
           <p>Mot de passe Blocksto :</p>
           <input
-            type="text"
+            type="password"
             value={blockstoPassword}
             onChange={(e) => {
               setBlockstoPassword(e.target.value);
@@ -33,7 +33,7 @@ const Connection = () => {
           <p>ou</p>
           <a href="/register">Créer un compte</a>
         </div>
-        <div className="button" role="button" onClick={login}>
+        <div className="button" role="button" onClick={() => onLogin()}>
           Valider
         </div>
       </div>
