@@ -1,0 +1,25 @@
+div.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+div.icon-button > img {
+  width: 90px;
+  padding: 0px 10px 10px 10px;
+  cursor: pointer;
+}
+div.icon-button > img:hover,
+div.icon-button > img.selected {
+  filter: invert(30%) sepia(72%) saturate(2177%) hue-rotate(309deg);
+}
+div.icon-button > img.mini {
+  width: 60px;
+  padding: 0px 10px 10px 10px;
+}
+div.icon-button > span {
+  font-size: 18px;
+}
+div.icon-button>span.mini {
+  font-size: 12px;
+}
