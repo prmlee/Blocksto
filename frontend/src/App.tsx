@@ -5,6 +5,7 @@ import Connection from './pages/connection';
 import Main from './pages/main';
 import Header from './components/header';
 import { AuthContext } from './contexts/auth';
+import Register from './pages/register';
 import './App.css';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
               !isAuthenticated ? <Main /> : <Navigate to="/connection" />
             }
           />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>
