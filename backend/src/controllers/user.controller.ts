@@ -1,18 +1,37 @@
-import { Response } from "express";
-import httpStatus from "http-status";
-import { Body, JsonController, Put, Res, UseBefore } from "routing-controllers";
-import { User } from "../database/entities/user.entity";
-import { UserInsertParam } from "../dtos/user/insert.dto";
-import { AuthMiddleware } from "../middlewares/auth.middleware";
-import { UserService } from "../services/user.service";
+import { Response } from 'express';
+import httpStatus from 'http-status';
+import { Body, Res, Post, Controller, JsonController } from 'routing-controllers';
+import { User } from '../database/entities/user.entity';
+import { UserConnectParam } from '../dtos/user/connect.dto';
+import { UserRegisterParam } from '../dtos/user/register.dto';
+import { UserService } from '../services/user.service';
+import { AuthUtils } from '../utils/auth.utils';
 
-@JsonController("/user")
-export class UserController { 
-  @UseBefore(AuthMiddleware.isAuthenticated)
-  @Put("/")
-  async insert(@Body() userReq: UserInsertParam, @Res() response: Response) { 
+@JsonController('/user')
+export class UserController {
+  @Post('/connect')
+  async connect(@Body() userReq: UserConnectParam, @Res() response: Response) {
+    console.log(userReq);
     try {
-      const user: User = response.locals.user;
+      const { blockstoId, blockstoPassword } = userReq;
+      const user = await UserService.findByIdAndPassword(blockstoId, blockstoPassword);
+
+      if (user) {
+        const jwt = AuthUtils.createJWToken(user);
+        response.status(httpStatus.OK).json({ data: { jwt, ...user } });
+      } else {
+        response.status(httpStatus.NOT_FOUND).json({ message: 'User Not Found' });
+      }
+    } catch (error) {
+      response.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Internal Server Error' });
+    }
+  }
+
+  @Post('/register')
+  async register(@Body() userReq: UserRegisterParam, @Res() response: Response) {
+    console.log(userReq);
+    try {
+      const user: User = new User();
       user.firstname = userReq.firstname;
       user.lastname = userReq.lastname;
       user.particular = userReq.particular;
@@ -24,11 +43,11 @@ export class UserController {
       user.email = userReq.email;
       user.blockstoId = userReq.blockstoId;
       user.blockstoPassword = userReq.blockstoPassword;
-      
-      const savedUser = UserService.save(user);
+
+      const savedUser = await UserService.save(user);
       response.status(httpStatus.OK).json({ data: savedUser });
     } catch (error) {
-      response.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: "Internal Server Error" });
+      response.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Internal Server Error' });
     }
   }
 }

@@ -18,13 +18,13 @@ const App = () => {
           <Route path="/" element={<Navigate to="/welcome" />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/connection" element={<Connection />} />
+          <Route path="/register" element={<Register />} />
           <Route
             path="/main"
             element={
               !isAuthenticated ? <Main /> : <Navigate to="/connection" />
             }
           />
-          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>

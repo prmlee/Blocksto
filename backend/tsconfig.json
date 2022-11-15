@@ -11,6 +11,7 @@
     "noImplicitAny": true,
     "strictNullChecks": false,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
   }
 }

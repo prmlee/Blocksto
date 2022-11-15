@@ -1,16 +1,17 @@
-import { Application } from "express";
-import { createExpressServer } from "routing-controllers";
+import { Application } from 'express';
+import { createExpressServer } from 'routing-controllers';
+import { UserController } from '../controllers/user.controller';
 
-export const ExpressServerLoader = (): Application => { 
+export const ExpressServerLoader = (): Application => {
   const app: Application = createExpressServer({
     cors: true,
     classTransformer: true,
     defaultErrorHandler: false,
     middlewares: [],
-    controllers: []
+    controllers: [UserController],
   });
 
   app.listen(process.env.PORT);
 
   return app;
-}
+};
