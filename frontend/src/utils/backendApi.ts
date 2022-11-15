@@ -26,10 +26,14 @@ export const fetchApi = async (
       },
       body: JSON.stringify(body),
     });
-    return await response.json();
+
+    if (response.status === 200) {
+      return await response.json();
+    }
   } catch (error) {
     console.log(error);
   }
+  return null;
 };
 
 export const pinFileToIPFS = async (file: File) => {

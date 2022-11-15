@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './index.css';
 
 type InputBasicProps = {
@@ -45,6 +44,16 @@ export const PrimaryInput = (props: InputBasicProps) => {
     <div className={`input-primary ${type === 'checkbox' ? 'w-content' : ''}`}>
       {label && <span>{label + (required ? '*' : '') + ' :'}</span>}
       {inputElements[type] ?? inputElements['other']}
+    </div>
+  );
+};
+
+export const NormalInput = (props: InputBasicProps) => {
+  const { label, required, type } = props;
+
+  return (
+    <div className={`input-normal ${type === 'checkbox' ? 'w-content' : ''}`}>
+      {label && <span>{label + (required ? '*' : '') + ' :'}</span>}
     </div>
   );
 };

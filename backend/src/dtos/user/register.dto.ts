@@ -1,4 +1,4 @@
-import { IsAlpha, IsBoolean, IsEmail, IsPositive, IsString } from 'class-validator';
+import { IsAlpha, IsBoolean, IsEmail, IsNumber, IsPositive, IsString } from 'class-validator';
 
 export class UserRegisterParam {
   @IsAlpha()
@@ -13,7 +13,7 @@ export class UserRegisterParam {
   @IsBoolean()
   professional: boolean;
 
-  @IsPositive()
+  @IsNumber()
   buildingType: number;
 
   @IsString()

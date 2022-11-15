@@ -19,9 +19,6 @@ const Register = () => {
   const [blockstoPassword, setBlockstoPassword] = useState<string>('');
 
   const onRegister = async () => {
-    console.log(
-      `${firstname}-${lastname}-${particular}-${professional}-${buildingType}-${companyName}-${sirenNumber}-${address}-${email}-${blockstoId}-${blockstoPassword}`,
-    );
     const res = await fetchApi('user/register', 'POST', {
       firstname,
       lastname,
@@ -35,7 +32,9 @@ const Register = () => {
       blockstoId,
       blockstoPassword,
     });
-    console.log(res);
+    if (res) {
+      window.location.href = '/connection';
+    }
   };
 
   return (
