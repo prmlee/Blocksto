@@ -1,12 +1,11 @@
 import { createContext, useState } from 'react';
 import { User } from '../types';
-
 interface AuthProps {
   isAuthenticated: boolean;
   user: User | null;
   updateUser: (user: User) => void;
   connect: (jwt: string, user: User) => void;
-  logout: () => void;
+  disconnect: () => void;
 }
 
 export const AuthContext = createContext<AuthProps>({} as AuthProps);
@@ -27,7 +26,7 @@ export const AuthProvider = ({ children }: any) => {
     localStorage.setItem('blockstoUser', JSON.stringify(user));
   };
 
-  const logout = () => {
+  const disconnect = () => {
     localStorage.removeItem('blockstoUser');
     setIsAuthenticated(false);
     setUser(null);
@@ -35,7 +34,7 @@ export const AuthProvider = ({ children }: any) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, user, updateUser, connect, logout }}
+      value={{ isAuthenticated, user, updateUser, connect, disconnect }}
     >
       {children}
     </AuthContext.Provider>

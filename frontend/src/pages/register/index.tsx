@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PrimaryInput } from '../../components/Input';
 import { PrimaryDropdown } from '../../components/Input/dropdown';
 import { buildingTypes } from '../../constant';
@@ -17,6 +18,7 @@ const Register = () => {
   const [email, setEmail] = useState<string>('');
   const [blockstoId, setBlockstoId] = useState<string>('');
   const [blockstoPassword, setBlockstoPassword] = useState<string>('');
+  const navigate = useNavigate();
 
   const onRegister = async () => {
     const res = await fetchApi('user/register', 'POST', {
@@ -33,7 +35,7 @@ const Register = () => {
       blockstoPassword,
     });
     if (res) {
-      window.location.href = '/connection';
+      navigate('/connection');
     }
   };
 

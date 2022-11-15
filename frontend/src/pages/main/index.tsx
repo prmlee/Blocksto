@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { MiniIconButton, PrimaryIconButton } from '../../components/button';
+import Profile from '../../components/tabContent/profile';
 import './styles/index.css';
 
 const Main = () => {
-  const [selectedTab, setSelectedTab] = useState<string>('house');
+  const [selectedTab, setSelectedTab] = useState<string>('profile');
 
   const handleTab = (tab: string) => {
     setSelectedTab(tab);
   };
 
   const tabContents: { [key: string]: any } = {
-    profile: <>Profile</>,
+    profile: <Profile />,
     house: <>House</>,
     envelope: <>Envelope</>,
   };

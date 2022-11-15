@@ -1,0 +1,14 @@
+div.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+div.profile > img {
+  width: 20%;
+  max-width: 200px;
+  border-radius: 50%;
+}
+div.profile > div.form-group {
+  width: 85%;
+  align-self: flex-end;
+}
