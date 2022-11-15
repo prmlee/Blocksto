@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { PrimaryInput } from '../../components/Input';
 import { PrimaryDropdown } from '../../components/Input/dropdown';
 import { buildingTypes } from '../../constant';
+import { fetchApi } from '../../utils/backendApi';
 import './index.css';
 
 const Register = () => {
@@ -17,10 +18,23 @@ const Register = () => {
   const [blockstoId, setBlockstoId] = useState<string>('');
   const [blockstoPassword, setBlockstoPassword] = useState<string>('');
 
-  const onRegister = () => {
-    console.log(
-      `${firstname}-${lastname}-${particular}-${professional}-${buildingType}-${companyName}-${sirenNumber}-${address}-${email}-${blockstoId}-${blockstoPassword}`,
-    );
+  const onRegister = async () => {
+    const res = await fetchApi('user/register', 'POST', {
+      firstname,
+      lastname,
+      particular,
+      professional,
+      buildingType,
+      companyName,
+      sirenNumber,
+      address,
+      email,
+      blockstoId,
+      blockstoPassword,
+    });
+    if (res) {
+      window.location.href = '/connection';
+    }
   };
 
   return (

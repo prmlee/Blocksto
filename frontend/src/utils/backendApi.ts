@@ -1,7 +1,7 @@
 import axios, { AxiosProgressEvent } from 'axios';
 import { MethodType } from '../types';
 
-const BASE_URL = '';
+const BASE_URL = 'http://localhost:3001';
 const PINATA_API_KEY = 'c74953c8b116c5c78fba';
 const PINATA_API_SECRET =
   '9892e81ad20ce23ec6d94901589d76bccff39f041862e048835d6d59744103c3';
@@ -26,10 +26,14 @@ export const fetchApi = async (
       },
       body: JSON.stringify(body),
     });
-    return await response.json();
+
+    if (response.status === 200) {
+      return await response.json();
+    }
   } catch (error) {
     console.log(error);
   }
+  return null;
 };
 
 export const pinFileToIPFS = async (file: File) => {

@@ -1,14 +1,6 @@
-import {
-  IsAlpha,
-  IsAlphanumeric,
-  IsBoolean,
-  IsEmail,
-  IsNumberString,
-  IsPositive,
-  IsString,
-} from "class-validator";
+import { IsAlpha, IsBoolean, IsEmail, IsNumber, IsPositive, IsString } from 'class-validator';
 
-export class UserInsertParam {
+export class UserRegisterParam {
   @IsAlpha()
   firstname: string;
 
@@ -21,16 +13,16 @@ export class UserInsertParam {
   @IsBoolean()
   professional: boolean;
 
-  @IsPositive()
+  @IsNumber()
   buildingType: number;
 
-  @IsAlphanumeric()
+  @IsString()
   companyName: string;
 
-  @IsNumberString()
+  @IsString()
   sirenNumber: string;
 
-  @IsAlphanumeric()
+  @IsString()
   address: string;
 
   @IsEmail()
@@ -41,7 +33,4 @@ export class UserInsertParam {
 
   @IsString()
   blockstoPassword: string;
-
-  @IsString()
-  avatar: string;
 }

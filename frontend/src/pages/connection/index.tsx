@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/auth';
+import { fetchApi } from '../../utils/backendApi';
 import './index.css';
 
 const Connection = () => {
+  const { connect } = useContext(AuthContext);
   const [blockstoId, setBlockstoId] = useState<string>('');
   const [blockstoPassword, setBlockstoPassword] = useState<string>('');
 
-  const onLogin = () => {
-    console.log(blockstoId, blockstoPassword);
+  const onConnect = async () => {
+    const res = await fetchApi('user/connect', 'POST', {
+      blockstoId,
+      blockstoPassword,
+    });
+    if (res) {
+      connect(res.data.jwt, res.data.user);
+      window.location.href = '/main';
+    }
   };
 
   return (
@@ -33,7 +43,7 @@ const Connection = () => {
           <p>ou</p>
           <a href="/register">Créer un compte</a>
         </div>
-        <div className="button" role="button" onClick={() => onLogin()}>
+        <div className="button" role="button" onClick={() => onConnect()}>
           Valider
         </div>
       </div>

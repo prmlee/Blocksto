@@ -5,7 +5,7 @@ interface AuthProps {
   isAuthenticated: boolean;
   user: User | null;
   updateUser: (user: User) => void;
-  login: () => void;
+  connect: (jwt: string, user: User) => void;
   logout: () => void;
 }
 
@@ -20,7 +20,13 @@ export const AuthProvider = ({ children }: any) => {
     localStorage.setItem('blockstoUser', JSON.stringify(user));
   };
 
-  const login = () => {};
+  const connect = (jwt: string, user: User) => {
+    setIsAuthenticated(true);
+    setUser(user);
+    localStorage.setItem('blockstoJWT', jwt);
+    localStorage.setItem('blockstoUser', JSON.stringify(user));
+  };
+
   const logout = () => {
     localStorage.removeItem('blockstoUser');
     setIsAuthenticated(false);
@@ -29,7 +35,7 @@ export const AuthProvider = ({ children }: any) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, user, updateUser, login, logout }}
+      value={{ isAuthenticated, user, updateUser, connect, logout }}
     >
       {children}
     </AuthContext.Provider>

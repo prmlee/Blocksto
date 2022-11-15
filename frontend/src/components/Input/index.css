@@ -69,10 +69,16 @@ div.primary-dropdown > div.dropdown-content {
   align-items: center;
   position: absolute;
   margin-left: 200px;
-  background-color: var(--lightgray);
+  background-color: #94989d9c;
   top: 100%;
-  width: 77%;
+  width: 50%;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
 }
 div.primary-dropdown > div.dropdown-content > p {
   margin: 6px 0px;
+}
+div.primary-dropdown>div.dropdown-content>p:hover {
+  font-weight: 700;
 }
