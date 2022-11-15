@@ -22,7 +22,28 @@ div.input-primary > input[type='checkbox'] {
   width: 32px;
   height: 32px;
 }
-div.input-primary > span {
+
+div.input-normal {
+  display: flex;
+  border-radius: 6px;
+  border: 1px solid black;
+  padding: 4px 12px;
+  margin-top: 12px;
+  width: 100%;
+  font-size: 24px;
+  text-align: left;
+}
+div.input-normal > input[type='text'],
+div.input-normal > input[type='number'],
+div.input-normal > input[type='email'] {
+  flex: 1;
+  margin-right: 24px;
+  border: none;
+  width: inherit;
+}
+
+div.input-primary>span,
+div.input-normal>span {
   flex-shrink: 0;
   padding-right: 24px;
 }
