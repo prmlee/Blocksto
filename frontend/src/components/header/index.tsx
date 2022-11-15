@@ -1,14 +1,18 @@
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth';
 import './index.css';
 
 const Header = () => {
-  const isAuthenticated = false;
+  const { isAuthenticated, disconnect } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const connect = () => {
+  const clickConnectButton = () => {
     if (isAuthenticated) {
-      console.log('// comming soon!');
-      return;
+      disconnect();
+    } else {
+      navigate('/connection');
     }
-    window.location.href = '/connection';
   };
 
   return (
@@ -23,7 +27,7 @@ const Header = () => {
         <a href="/welcome" className="button">
           Accueil
         </a>
-        <a className="button" role="button" onClick={connect}>
+        <a className="button" role="button" onClick={clickConnectButton}>
           {!isAuthenticated ? 'Connexion' : 'Se déconnecter'}
         </a>
       </div>

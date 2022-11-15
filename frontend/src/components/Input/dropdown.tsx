@@ -18,7 +18,7 @@ export const PrimaryDropdown = (props: DropdownBasicProps) => {
         <span>{`${label} :`}</span>
         <span>{values[selected]}</span>
         <img
-          src="./images/svg/drop-arrow.svg"
+          src="./images/svg/dropdown.svg"
           alt="Drop Icon"
           onClick={() => setIsDown(!isDown)}
         />

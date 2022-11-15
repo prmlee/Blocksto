@@ -1,12 +1,14 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth';
 import { fetchApi } from '../../utils/backendApi';
 import './index.css';
 
 const Connection = () => {
-  const { connect } = useContext(AuthContext);
+  const { connect, isAuthenticated } = useContext(AuthContext);
   const [blockstoId, setBlockstoId] = useState<string>('');
   const [blockstoPassword, setBlockstoPassword] = useState<string>('');
+  const navigate = useNavigate();
 
   const onConnect = async () => {
     const res = await fetchApi('user/connect', 'POST', {
@@ -15,9 +17,13 @@ const Connection = () => {
     });
     if (res) {
       connect(res.data.jwt, res.data.user);
-      window.location.href = '/main';
     }
   };
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/main');
+    }
+  }, [isAuthenticated]);
 
   return (
     <div className="row align-items-end connection">
