@@ -82,5 +82,14 @@ export const NormalInput = (props: InputBasicProps) => {
   );
 };
 
+export const SearchInput = () => {
+  return (
+    <div className="input-search">
+      <img src="./images/svg/search-icon.svg" alt="Search Icon SVG" />
+      <input type="search" placeholder="Rechercher dans Blocksto" />
+    </div>
+  );
+};
+
 PrimaryInput.defaultProps = defaultProps;
 NormalInput.defaultProps = defaultProps;

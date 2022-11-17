@@ -1,6 +1,11 @@
 import { AppDataSource } from '../database/data-source';
 import { User } from '../database/entities/user.entity';
 
+const findByUUId = async (id: string): Promise<User | null> => {
+  const user = await AppDataSource.manager.findOneBy(User, { id });
+  return user;
+};
+
 const findByIdAndPassword = async (
   blockstoId: string,
   blockstoPassword: string,
@@ -14,4 +19,4 @@ const save = async (user: User): Promise<User> => {
   return savedUser;
 };
 
-export const UserService = { findByIdAndPassword, save };
+export const UserService = { findByUUId, findByIdAndPassword, save };

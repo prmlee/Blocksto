@@ -35,7 +35,8 @@ div.input-normal {
 }
 div.input-normal > input[type='text'],
 div.input-normal > input[type='number'],
-div.input-normal > input[type='email'] {
+div.input-normal > input[type='email'],
+div.input-search > input {
   flex: 1;
   margin-right: 24px;
   border: none;
