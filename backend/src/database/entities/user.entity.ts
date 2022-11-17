@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Notebook } from './notebook.entity';
 
 @Entity('users')
 export class User {
@@ -40,4 +41,7 @@ export class User {
 
   @Column({ name: 'avatar', length: 300, nullable: true })
   avatar: string;
+
+  @OneToMany(() => Notebook, (n) => n.owner)
+  notebooks: Notebook[];
 }

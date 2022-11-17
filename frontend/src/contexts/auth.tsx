@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react';
 import { User } from '../types';
+
 interface AuthProps {
   isAuthenticated: boolean;
   user: User | null;

@@ -17,6 +17,7 @@ div.connection > div:first-child input {
 	border-width: 2px;
 	border-color: black;
 	font-size: 28px;
+  padding: 1px 16px;
 }
 div.connection a[href='/register'] {
 	text-decoration: underline;
